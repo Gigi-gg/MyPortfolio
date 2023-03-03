@@ -1,9 +1,0 @@
-### How many books have I read each year
-
-/*Determine number of books read each year */
-
-SELECT COUNT (DISTINCT title) AS book_count, 
-  readingStatus, 
-  EXTRACT(YEAR FROM finishedReading) AS year
-FROM `mythic-beanbag-363223.Books.2022_books` 
-GROUP BY readingStatus, year

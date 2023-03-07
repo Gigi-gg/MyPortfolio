@@ -98,8 +98,7 @@ SELECT
 WITH book_ratings AS (
     SELECT CAST(averageRating AS STRING) AS rating, title, pagecount, finishedReading,
     FROM `mythic-beanbag-363223.Books.2022_books`
-    WHERE finishedReading BETWEEN '2022-01-01' AND '2022-12-31'
-)
+    WHERE finishedReading BETWEEN '2022-01-01' AND '2022-12-31')
 
 SELECT rating AS rating_of_5, COUNT(*) AS book_count
 FROM book_ratings

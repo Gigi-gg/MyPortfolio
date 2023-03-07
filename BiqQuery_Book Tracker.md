@@ -69,6 +69,57 @@ ORDER BY month
 | 12    | 9           | 3614       |
 
 
+/* Display running page count for books read in 2022 */
+
+SELECT 
+    finishedReading AS finish_date,
+    title,
+    pageCount AS pages,
+  SUM(pageCount) OVER(ORDER BY finishedReading,title 
+   ROWS BETWEEN UNBOUNDED PRECEDING AND Current Row) AS running_page_count
+ FROM `mythic-beanbag-363223.Books.2022_books` 
+ WHERE readingStatus = "read" AND
+ finishedReading BETWEEN '2022-01-01' AND '2022-12-31'
+ ORDER BY finishedReading, title
+ LIMIT 6;
+ 
+ | finish_date | title                     | pages | running_page_count |
+|-------------|---------------------------|-------|--------------------|
+| 2022-01-11  | The Vanishing Half        | 352   | 352                |
+| 2022-02-01  | Moonwalking with Einstein | 320   | 672                |
+| 2022-02-06  | Apples Never Fall         | 480   | 1152               |
+| 2022-02-11  | The Last Thing He Told Me | 320   | 1472               |
+| 2022-02-18  | The Nickel Boys           | 224   | 1696               |
+| 2022-02-24  | Six of Crows              | 320   | 2016               |
+
+
+/* COUNT books by rating */
+
+WITH book_ratings AS (
+    SELECT CAST(averageRating AS STRING) AS rating, title, pagecount, finishedReading,
+    FROM `mythic-beanbag-363223.Books.2022_books`
+    WHERE finishedReading BETWEEN '2022-01-01' AND '2022-12-31'
+)
+
+SELECT rating AS rating_of_5, COUNT(*) AS book_count
+FROM book_ratings
+GROUP BY rating
+ORDER BY rating
+
+| rating_of_5 | book_count |
+|-------------|------------|
+| 2           | 1          |
+| 3           | 25         |
+| 3.5         | 8          |
+| 4           | 27         |
+| 4.5         | 4          |
+| 5           | 34         |
+
+
+
+
+
+
 /* Rank Top 5 genres by average rating from books list */
 
 WITH book_ratings AS (SELECT 
@@ -103,19 +154,7 @@ WITH book_genres AS (SELECT
   ORDER BY book_genres.book_count DESC
   LIMIT 5
  
-/* Display running page count for books read in 2022 */
 
-SELECT 
-  title,
-  pageCount,
-  finishedReading,
-  SUM(pageCount) OVER(ORDER BY finishedReading,title 
-   ROWS BETWEEN UNBOUNDED PRECEDING AND Current Row) AS running_total
- FROM `mythic-beanbag-363223.Books.2022_books` 
- WHERE readingStatus = "read" AND
- finishedReading BETWEEN '2022-01-01' AND '2022-12-31'
- ORDER BY finishedReading, title;
- 
  /* Display previous title and genre read from books finished in 2022 */
 
 WITH finished_books AS (SELECT 

@@ -18,6 +18,22 @@ GROUP BY readingStatus, year;
 | 2021 | 3          | 1552        | 2             | 1            | read          |
 | 1    | 320        | 1           | 1             | dnf          |               |
 
+/* Total books by format */
+
+SELECT type, COUNT(title) AS title_count
+FROM 
+    (SELECT title, type
+    FROM `mythic-beanbag-363223.Books.2022_books`
+    WHERE finishedReading BETWEEN '2022-01-01' AND '2022-12-31') AS subquery
+GROUP BY type;
+
+| type         | title_count |
+|--------------|-------------|
+| EBOOK        | 30          |
+| AUDIOBOOK    | 57          |
+| PHYSICALBOOK | 12          |
+
+
 
 /* Rank Top 5 genres by average rating from books list */
 

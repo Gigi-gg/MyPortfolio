@@ -8,24 +8,28 @@ SELECT
     sum(pageCount) AS total_pages,
     COUNT (DISTINCT authors) AS total_authors,
     COUNT (DISTINCT categories) as total_genres,
-    readingStatus,
+    readingStatus AS read_status,
 FROM `mythic-beanbag-363223.Books.2022_books` 
 GROUP BY readingStatus, year;
 
-| year | book_count | total_pages | total_authors | total_genres | readingStatus |
-|------|------------|-------------|---------------|--------------|---------------|
-| 2022 | 99         | 35832       | 80            | 18           | read          |
-| 2021 | 3          | 1552        | 2             | 1            | read          |
-| 1    | 320        | 1           | 1             | dnf          |               |
+| year | book_count | total_pages | total_authors | total_genres | read_status |
+|------|------------|-------------|---------------|--------------|-------------|
+| 2022 | 99         | 35832       | 80            | 18           | read        |
+| 2021 | 3          | 1552        | 2             | 1            | read        |
+| null | 1          | 320         | 1             | 1            | dnf         |
+
 
 /* Total books by format */
 
-SELECT type, COUNT(title) AS title_count
+SELECT 
+    type, 
+    COUNT(title) AS title_count
 FROM 
     (SELECT title, type
     FROM `mythic-beanbag-363223.Books.2022_books`
     WHERE finishedReading BETWEEN '2022-01-01' AND '2022-12-31') AS subquery
 GROUP BY type;
+
 
 | type         | title_count |
 |--------------|-------------|
@@ -33,6 +37,36 @@ GROUP BY type;
 | AUDIOBOOK    | 57          |
 | PHYSICALBOOK | 12          |
 
+
+/* COUNT books and pages finished each month */
+
+WITH books_2022 AS (
+    SELECT title, pagecount, finishedReading,
+    FROM `mythic-beanbag-363223.Books.2022_books`
+    WHERE finishedReading BETWEEN '2022-01-01' AND '2022-12-31')
+
+SELECT
+ EXTRACT(MONTH from finishedReading) AS month,
+ COUNT(title) AS books_count,
+  sum(pageCount) AS page_count,
+FROM books_2022
+GROUP BY month
+ORDER BY month
+
+| month | books_count | page_count |
+|-------|-------------|------------|
+| 1     | 1           | 352        |
+| 2     | 6           | 2064       |
+| 3     | 11          | 3776       |
+| 4     | 8           | 3280       |
+| 5     | 9           | 3272       |
+| 6     | 9           | 3216       |
+| 7     | 11          | 3616       |
+| 8     | 12          | 5135       |
+| 9     | 10          | 2901       |
+| 10    | 5           | 1650       |
+| 11    | 8           | 2956       |
+| 12    | 9           | 3614       |
 
 
 /* Rank Top 5 genres by average rating from books list */

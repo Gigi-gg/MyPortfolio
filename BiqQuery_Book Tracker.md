@@ -1,5 +1,24 @@
 
 ```sql
+/* Let's look at some summary statistics from the 2022_books table */
+
+SELECT 
+    EXTRACT(YEAR FROM finishedReading) AS year,
+    COUNT (DISTINCT title) AS book_count,
+    sum(pageCount) AS total_pages,
+    COUNT (DISTINCT authors) AS total_authors,
+    COUNT (DISTINCT categories) as total_genres,
+    readingStatus,
+FROM `mythic-beanbag-363223.Books.2022_books` 
+GROUP BY readingStatus, year;
+
+| year | book_count | total_pages | total_authors | total_genres | readingStatus |
+|------|------------|-------------|---------------|--------------|---------------|
+| 2022 | 99         | 35832       | 80            | 18           | read          |
+| 2021 | 3          | 1552        | 2             | 1            | read          |
+| 1    | 320        | 1           | 1             | dnf          |               |
+
+
 /* Rank Top 5 genres by average rating from books list */
 
 WITH book_ratings AS (SELECT 

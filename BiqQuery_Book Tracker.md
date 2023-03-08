@@ -1,6 +1,8 @@
+### Book Tracker Data
+##### Analyzing data from the book tracker app I use. For this practice, I only want books finished in 2022. I exported a csv file from the app and used BigQuery for the analysis.
 
 ```sql
-/* Let's look at some summary statistics from the 2022_books table */
+/* COUNT, EXTRACT, ALIASING - Let's look at some summaries from the 2022_books table. */
 
 SELECT 
     EXTRACT(YEAR FROM finishedReading) AS year,
@@ -19,7 +21,7 @@ GROUP BY readingStatus, year;
 | null | 1          | 320         | 1             | 1            | dnf         |
 
 
-/* Total books by format */
+/* SUBQUERY - Using a subquery to filter out books not finished in 2022*/
 
 SELECT 
     type, 
@@ -27,7 +29,7 @@ SELECT
 FROM 
     (SELECT title, type
     FROM `mythic-beanbag-363223.Books.2022_books`
-    WHERE finishedReading BETWEEN '2022-01-01' AND '2022-12-31') AS subquery
+    WHERE finishedReading BETWEEN '2022-01-01' AND '2022-12-31')
 GROUP BY type;
 
 
@@ -38,7 +40,7 @@ GROUP BY type;
 | PHYSICALBOOK | 12          |
 
 
-/* COUNT books and pages finished each month */
+/* Counting books and summing pages finished each month */
 
 WITH books_2022 AS (
     SELECT title, pagecount, finishedReading,
@@ -69,7 +71,7 @@ ORDER BY month
 | 12    | 9           | 3614       |
 
 
-/* Display running page count for books read in 2022 */
+/* AGGREGATE FUNCTIONS - Display running page count for books read in 2022 */
 
 SELECT 
     finishedReading AS finish_date,
@@ -93,7 +95,7 @@ SELECT
 | 2022-02-24  | Six of Crows              | 320   | 2016               |
 
 
-/* COUNT books by rating */
+/* CAST - Casting average rating as string to count and group books by star rating */
 
 WITH book_ratings AS (
     SELECT CAST(averageRating AS STRING) AS rating, title, pagecount, finishedReading,
@@ -114,6 +116,52 @@ ORDER BY rating
 | 4.5         | 4          |
 | 5           | 34         |
 
+
+/* COUNT, GROUP BY, ORDER BY -counting the number of books by genre. */
+
+WITH books_2022 AS (
+    SELECT *
+    FROM `mythic-beanbag-363223.Books.2022_books`
+    WHERE finishedReading BETWEEN '2022-01-01' AND '2022-12-31')
+
+SELECT 
+  categories AS genre,
+  count(title) AS book_count
+FROM books_2022
+GROUP BY genre
+ORDER BY book_count DESC
+LIMIT 6
+
+| genre                | book_count |
+|----------------------|------------|
+| Fantasy Ficiton      | 32         |
+| Memoir Non-Ficiton   | 8          |
+| Historical Fiction   | 8          |
+| Horror Ficition      | 7          |
+| Science Fiction      | 6          |
+| Contemporary Fiction | 6          |
+
+
+
+/* CASE WHEN, LIKE OPERATOR, WILDCARDS - Categorizing books as fiction and non-fiction using CASE on the category. The previous query revealed spelling errors in some categories so I'll use wildcards to case properly */
+
+WITH books_2022 AS (
+    SELECT *
+    FROM `mythic-beanbag-363223.Books.2022_books`
+    WHERE finishedReading BETWEEN '2022-01-01' AND '2022-12-31')
+
+
+SELECT count(*) AS book_count,
+  (CASE WHEN categories LIKE '%Non-%' THEN 'Non-Fiction'
+  ELSE 'Fiction'
+  end) AS genre
+FROM books_2022
+GROUP BY genre
+
+| book_count | genre       |
+|------------|-------------|
+| 77         | Fiction     |
+| 22         | Non-Fiction |
 
 
 

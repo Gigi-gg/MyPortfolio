@@ -143,7 +143,8 @@ LIMIT 6
 
 
 
-/* CASE WHEN, LIKE OPERATOR, WILDCARDS - Categorizing books as fiction and non-fiction using CASE on the category. The previous query revealed spelling errors in some categories so I'll use wildcards to case properly */
+/* CASE WHEN, LIKE OPERATOR, WILDCARDS - Categorizing books as fiction and non-fiction using CASE on the category. 
+The previous query revealed spelling errors in some categories so I'll use wildcards to case properly */
 
 WITH books_2022 AS (
     SELECT *
@@ -163,9 +164,11 @@ GROUP BY genre
 | 77         | Fiction     |
 | 22         | Non-Fiction |
 
+```
 
 ##### Advanced SQL functions
 
+```sql
 /* WINDOW FUNCTIONS DENSE_RANK - Rank Top 5 genres by average rating from books list */
 
 WITH book_ratings AS (SELECT 

@@ -2,7 +2,7 @@
 ##### Analyzing data from the book tracker app I use. For this practice, I only want books finished in 2022. I exported a csv file from the app and used BigQuery for the analysis.
 
 ```sql
-/* COUNT, EXTRACT, ALIASING - Let's look at some summaries from the 2022_books table. */
+/* COUNT, EXTRACT, ALIASING - Looking at some summaries from the 2022_books table. */
 
 SELECT 
     EXTRACT(YEAR FROM finishedReading) AS year,
@@ -71,7 +71,7 @@ ORDER BY month
 | 12    | 9           | 3614       |
 
 
-/* AGGREGATE FUNCTIONS - Display running page count for books read in 2022 */
+/* AGGREGATE FUNCTIONS SUM - Display running page count for books read in 2022 */
 
 SELECT 
     finishedReading AS finish_date,
@@ -164,10 +164,9 @@ GROUP BY genre
 | 22         | Non-Fiction |
 
 
+##### Advanced SQL functions
 
-
-
-/* Rank Top 5 genres by average rating from books list */
+/* WINDOW FUNCTIONS DENSE_RANK - Rank Top 5 genres by average rating from books list */
 
 WITH book_ratings AS (SELECT 
   categories,
@@ -184,54 +183,18 @@ WITH book_ratings AS (SELECT
   ORDER BY book_ratings.avg_rating DESC
   LIMIT 5
   
-  /* Rank genres based on count of books read */
+| categories              | avg_rating | genre_rank |
+|-------------------------|------------|------------|
+| Bio/AutoBio Non-Fiction | 5.0        | 1          |
+| Science Fiction         | 4.42       | 2          |
+| Essays Non-Fiction      | 4.38       | 3          |
+| Mythic Fiction          | 4.2        | 4          |
+| Fantasy Ficiton         | 4.19       | 5          |
 
-WITH book_genres AS (SELECT 
-  categories,
-  COUNT(*) AS book_count
- FROM `mythic-beanbag-363223.Books.2022_books` 
- GROUP BY categories
- ORDER BY book_count DESC)
-
- SELECT
-  categories,
-  book_count,
-  DENSE_RANK() OVER(ORDER BY book_genres.book_count DESC) AS rank_categories
-  FROM book_genres
-  ORDER BY book_genres.book_count DESC
-  LIMIT 5
  
+/* LAG & PARTITION WINDOW FUNCTIONS -  See previous title and finished date by genre for books finished in 2022 */
 
- /* Display previous title and genre read from books finished in 2022 */
-
-WITH finished_books AS (SELECT 
-  title, 
-  categories AS genre,
-  finishedReading
-FROM `mythic-beanbag-363223.Books.2022_books` 
-WHERE read = 'read'
- AND finishedReading BETWEEN '2022-01-01' AND '2022-12-31'
-ORDER BY finishedReading)
-
-SELECT
-  title,
-  genre,
-  finishedReading,
-  LAG(title) OVER (ORDER BY finishedReading) AS previous_book,
-  LAG(genre) OVER (ORDER BY finishedReading) AS previous_genre
-FROM finished_books
-ORDER BY finishedReading
-
-/* See previous title and finished date by genre for books finished in 2022 */
-
-WITH finished_books AS (SELECT 
-  title, 
-  categories AS genre,
-  finishedReading
-FROM `mythic-beanbag-363223.Books.2022_books` 
-WHERE read = 'read'
- AND finishedReading BETWEEN '2022-01-01' AND '2022-12-31'
-ORDER BY finishedReading)
+WITH finished_books AS... (Shortened repetitive query to save space)
 
 SELECT
   title,
@@ -242,37 +205,20 @@ SELECT
   LAG(finishedReading) OVER (PARTITION BY genre
                         ORDER BY finishedReading) AS last_genre_read
 FROM finished_books
-ORDER BY genre, finishedReading
+ORDER BY genre DESC, finishedReading
+LIMIT 6
+
+| title                      | genre                      | finishedReading | previous_book              | last_genre_read |
+|----------------------------|----------------------------|-----------------|----------------------------|-----------------|
+| Other People's Clothes     | Thriller Fiction           | 2022-05-13      |                            |                 |
+| Bunny                      | Thriller Fiction           | 2022-05-19      | Other People's Clothes     | 2022-05-13      |
+| Come With Me               | Thriller Fiction           | 2022-08-28      | Bunny                      | 2022-05-19      |
+| Cultish                    | Social Science Non-Fiction | 2022-03-31      |                            |                 |
+| The Undocumented Americans | Social Science Non-Fiction | 2022-05-10      | Cultish                    | 2022-03-31      |
+| Kids These Days            | Social Science Non-Fiction | 2022-11-30      | The Undocumented Americans | 2022-05-10      |
 
 
- 
- /* Select series and page count from book list*/
-SELECT 
-  series,
-  SUM(pageCount) as total_pages
-FROM `mythic-beanbag-363223.Books.2022_books`
-WHERE series IS NOT NULL
-GROUP BY series
-ORDER BY total_pages DESC;
-
-/* Split series into quarters using NTILE() function */
-
-WITH book_series AS (SELECT 
-  series,
-  SUM(pageCount) as total_pages
-FROM `mythic-beanbag-363223.Books.2022_books`
-WHERE series IS NOT NULL
-GROUP BY series
-ORDER BY total_pages DESC)
-
-SELECT 
-  series,
-  book_series.total_pages,
-  NTILE(4) OVER (ORDER BY book_series.total_pages DESC) AS Quarter
-FROM book_series
-ORDER BY book_series.total_pages DESC;
-
-/*Find average total pages by series quarter */
+/*WINDOW FUNCTIONS NTILE - Find average total pages by series quarter */
 
 WITH book_series AS (SELECT 
   series,
@@ -296,28 +242,16 @@ FROM Quarters
 GROUP BY quarter
 ORDER BY avg_total_pages DESC
 
-/* SELECT title count for each genre of book in each book format*/
-
-SELECT 
-  type AS format,
-  categories AS genre,
-  COUNT(*) AS book_count,
-FROM `mythic-beanbag-363223.Books.2022_books`
-GROUP BY type, genre
-ORDER BY format, genre;
+| Quarter | avg_total_pages |
+|---------|-----------------|
+| 1       | 1656.0          |
+| 2       | 1101.33         |
+| 3       | 944.0           |
+| 4       | 568.0           |
 
 
-/* ROLLUP totals by format */
 
-SELECT 
-  type AS format,
-  categories AS genre,
-  COUNT(*) AS book_count,
-FROM `mythic-beanbag-363223.Books.2022_books`
-GROUP BY ROLLUP(format,genre)
-ORDER BY format;
-
-/* COALESCE format and genre columns to replace nulls*/
+/* COALESCE, ROLLUP - Count books by genre, roll up to format level and replace nulls*/
 
 SELECT
   COALESCE(type, "All Formats") AS format,
@@ -325,6 +259,32 @@ SELECT
   COUNT(*) AS book_count
 FROM `mythic-beanbag-363223.Books.2022_books`
 GROUP BY ROLLUP(type, categories)
+LIMIT 20
+
+| format      | genre                      | book_count |
+|-------------|----------------------------|------------|
+| All Formats | All books                  | 103        |
+| EBOOK       | All books                  | 33         |
+| EBOOK       | LGBT Fiction               | 1          |
+| EBOOK       | Fantasy Ficiton            | 15         |
+| EBOOK       | Horror Ficition            | 3          |
+| EBOOK       | Mystery Fiction            | 2          |
+| EBOOK       | Science Fiction            | 1          |
+| EBOOK       | Romantic Fiction           | 1          |
+| EBOOK       | Essays Non-Fiction         | 2          |
+| EBOOK       | Historical Fiction         | 2          |
+| EBOOK       | Memoir Non-Ficiton         | 1          |
+| EBOOK       | Science Non-Fiction        | 1          |
+| EBOOK       | Contemporary Fiction       | 1          |
+| EBOOK       | Historical Non-Fiction     | 1          |
+| EBOOK       | Historical Fantasy Fiction | 1          |
+| EBOOK       | Social Science Non-Fiction | 1          |
+| AUDIOBOOK   | All books                  | 58         |
+| AUDIOBOOK   | Mythic Fiction             | 4          |
+| AUDIOBOOK   | Fantasy Ficiton            | 14         |
+| AUDIOBOOK   | Horror Ficition            | 2          |
+
+
 
 ```
 

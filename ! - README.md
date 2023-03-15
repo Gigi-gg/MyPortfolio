@@ -11,7 +11,7 @@
 - TABLEAU: Dashboard PDF [here](https://github.com/Gigi-gg/MyPortfolio/blob/3a6d79b332b5e2811ff5cd403c52ba898892ea4b/Tableau%20Dashboard_Video%20Game%20Sales.pdf)
 
 ### Superstore Sales Data (coming soon)
-- MySQL Table alterations: 
+- MySQL Table alterations: [here](https://github.com/Gigi-gg/MyPortfolio/blob/7d0265a46721d0ee247bc20772cec3708825b8af/MySQL%20superstore_alter_table.sql)
 - MySQL Analysis:
 - TABLEAU: 
 

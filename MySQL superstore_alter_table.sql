@@ -3,7 +3,7 @@
 Select * from superstore limit 10;
 
 
-/* renameing  columns */
+/* renaming  columns */
 
 ALTER TABLE superstore 
 	RENAME COLUMN `Customer ID` TO cust_id,

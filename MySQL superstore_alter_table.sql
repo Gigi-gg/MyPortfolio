@@ -1,8 +1,10 @@
 /* ALTER TABLE - altering the superstore table to make query more user friendly */
 
-select * from superstore limit 10;
+Select * from superstore limit 10;
+
 
 /* renameing  columns */
+
 ALTER TABLE superstore 
 	RENAME COLUMN `Customer ID` TO cust_id,
     RENAME COLUMN `Customer Name` to cust_name,
@@ -14,9 +16,9 @@ ALTER TABLE superstore
 /* SUBSTRING - separating out order day, month and year */
 
 SELECT
-	order_date,
-	substring_index(order_date, '/' , 1) AS month,
-     substring_index(substring_index(order_date, '/' , 2), "/", -1) AS day,
+    order_date,
+    substring_index(order_date, '/' , 1) AS month,
+    substring_index(substring_index(order_date, '/' , 2), "/", -1) AS day,
     substring_index(order_date, '/' , -1) AS year
 FROM superstore
 LIMIT 10;
@@ -65,7 +67,7 @@ UPDATE superstore SET new_ship_date =
     "-",
      substring_index(substring_index(ship_date, '/' , 2), "/", -1)));
 
-/* create & fill new order_date column because I can't change the type in mysql :( */
+/* Create & Fill new order_date column because I can't change the type in mysql :( */
 
 ALTER TABLE superstore ADD COLUMN new_order_date date;
 
@@ -79,7 +81,7 @@ UPDATE superstore SET new_order_date =
 
 /* view new and old columms */
 SELECT
-	ship_date,
+    ship_date,
     new_ship_date,
     order_date,
     new_order_date
@@ -95,5 +97,5 @@ ALTER TABLE superstore
 /* Rename new columns */
 
 ALTER TABLE superstore
-	RENAME COLUMN new_ship_date TO ship_date,
+    RENAME COLUMN new_ship_date TO ship_date,
     RENAME COLUMN new_order_date TO order_date;

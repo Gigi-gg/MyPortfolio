@@ -12,15 +12,15 @@ Select * from superstore limit 5;
 
 
 
-/* renaming  columns */
+/* Renaming  columns. Some changes made through queries others made in SQL script editor*/
 
 ALTER TABLE superstore 
     RENAME COLUMN `Row ID` to row_id,
     RENAME COLUMN `Order ID` TO order_id,
     RENAME COLUMN `Order Date` TO order_date,
-    RENAME COLUMN `Ship Date` TO ship_date; /* The rest of the changes were made in Table editor */
+    RENAME COLUMN `Ship Date` TO ship_date; 
 
-| row_id | order_id       | order_date | ship_date  | Ship Mode      | cust_id  | cust_name       | Segment   | Country       | City            | State      | zip   | Region | product_id      | Category        | category_2 | product_name                                                | Sales    | Quantity | Discount | Profit   |
+| row_id | order_id       | order_date | ship_date  | ship_mode      | cust_id  | cust_name       | Segment   | Country       | City            | State      | zip   | Region | product_id      | Category        | category_2 | product_name                                                | Sales    | Quantity | Discount | Profit   |
 |--------|----------------|------------|------------|----------------|----------|-----------------|-----------|---------------|-----------------|------------|-------|--------|-----------------|-----------------|------------|-------------------------------------------------------------|----------|----------|----------|----------|
 | 1      | CA-2016-152156 | 2016-11-08 | 2016-11-11 | Second Class   | CG-12520 | Claire Gute     | Consumer  | United States | Henderson       | Kentucky   | 42420 | South  | FUR-BO-10001798 | Furniture       | Bookcases  | Bush Somerset Collection Bookcase                           | 261.96   | 2        | 0        | 41.9136  |
 | 2      | CA-2016-152156 | 2016-11-08 | 2016-11-11 | Second Class   | CG-12520 | Claire Gute     | Consumer  | United States | Henderson       | Kentucky   | 42420 | South  | FUR-CH-10000454 | Furniture       | Chairs     | Hon Deluxe Fabric Upholstered Stacking Chairs, Rounded Back | 731.94   | 3        | 0        | 219.582  |
@@ -37,7 +37,17 @@ SELECT
     substring_index(substring_index(order_date, '/' , 2), "/", -1) AS day,
     substring_index(order_date, '/' , -1) AS year
 FROM superstore
-LIMIT 10;
+LIMIT 5;
+
+| order_date | month | day | year |
+|------------|-------|-----|------|
+| 2016-11-08 | 11    | 8   | 2016 |
+| 2016-11-08 | 11    | 8   | 2016 |
+| 2016-06-12 | 6     | 12  | 2016 |
+| 2015-10-11 | 10    | 11  | 2015 |
+| 2015-10-11 | 10    | 11  | 2015 |
+
+
 
 /* Add new columns for order day, month, year we previously separated out*/
 
@@ -52,7 +62,16 @@ UPDATE superstore SET order_year = substring_index(order_date, '/' , -1);
 
 SELECT order_date, order_month, order_day, order_year
 FROM superstore
-limit 10;
+limit 5;
+
+| order_date | order_month | order_day | order_year |
+|------------|-------------|-----------|------------|
+| 6/12/2016  | 6           | 12        | 2016       |
+| 11/8/2016  | 11          | 8         | 2016       |
+| 11/8/2016  | 11          | 8         | 2016       |
+| 10/11/2015 | 10          | 11        | 2015       |
+| 10/11/2015 | 10          | 11        | 2015       |
+
 
 /* Re-order ship_date to yyyy-mm-dd */
 
@@ -66,7 +85,16 @@ SELECT
      substring_index(substring_index(ship_date, '/' , 2), "/", -1)
     ) AS new_ship_date
 FROM superstore
-LIMIT 10;
+LIMIT 5;
+
+| ship_date  | new_ship_date |
+|------------|---------------|
+| 11/11/2016 | 2016-11-11    |
+| 11/11/2016 | 2016-11-11    |
+| 6/16/2016  | 2016-6-16     |
+| 10/18/2015 | 2015-10-18    |
+| 10/18/2015 | 2015-10-18    |
+
 
 /* Insert new ship date column */
 
@@ -102,7 +130,16 @@ SELECT
     order_date,
     new_order_date
 FROM superstore
-LIMIT 50;
+LIMIT 5;
+
+| ship_date  | new_ship_date | order_date | new_order_date |
+|------------|---------------|------------|----------------|
+| 11/11/2016 | 2016-11-11    | 11/8/2016  | 2016-11-08     |
+| 11/11/2016 | 2016-11-11    | 11/8/2016  | 2016-11-08     |
+| 6/16/2016  | 2016-06-16    | 6/12/2016  | 2016-06-12     |
+| 10/18/2015 | 2015-10-18    | 10/11/2015 | 2015-10-11     |
+| 10/18/2015 | 2015-10-18    | 10/11/2015 | 2015-10-11     |
+
 
 /* drop old columns */
 

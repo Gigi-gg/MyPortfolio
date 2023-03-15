@@ -10,7 +10,7 @@
 - R: Markdown [here](https://github.com/Gigi-gg/MyPortfolio/blob/3a6d79b332b5e2811ff5cd403c52ba898892ea4b/Rmarkdown_VideoGameSales.pdf)
 - TABLEAU: Dashboard PDF [here](https://github.com/Gigi-gg/MyPortfolio/blob/3a6d79b332b5e2811ff5cd403c52ba898892ea4b/Tableau%20Dashboard_Video%20Game%20Sales.pdf)
 
-### Superstore Sales Data Analysis
+### Superstore Sales Data Analysis (coming soon)
 - MySQL :
 - TABLEAU: 
 

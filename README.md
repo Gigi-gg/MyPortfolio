@@ -12,7 +12,7 @@
 
 ### Superstore Sales Data (in progress)
 - MySQL Table altering/updating: [here](https://github.com/Gigi-gg/MyPortfolio/blob/7d0265a46721d0ee247bc20772cec3708825b8af/MySQL%20superstore_alter_table.sql)
-- MySQL Analysis: [here](https://github.com/Gigi-gg/MyPortfolio/blob/f2b7a67003a7f47b9794a22628a0b581c39d0e22/MySQL%20Superstore%20Analysis.sql)
+- MySQL Analysis: [here](https://github.com/Gigi-gg/MyPortfolio/blob/3b09a4affc5ebaf6bedc811f79c3461437cb9000/MySQL%20Superstore%20Analysis.sql)
 - TABLEAU: 
 
 #### My Tableau Public Profile

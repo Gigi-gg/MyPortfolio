@@ -17,6 +17,6 @@
 
 ### DataCamp Projects
 
-- SQL: Best Selling Video Games
+- SQL: Best Selling Video Games [here](https://github.com/Gigi-gg/MyPortfolio/blob/6b0e4598a1edc445a7827f6f571ac02069c29129/DataCamp_Project_BestSellingVideoGames.md)
 #### My Tableau Public Profile
 https://public.tableau.com/app/profile/gigig

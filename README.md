@@ -15,5 +15,8 @@
 - MySQL Analysis: [here](https://github.com/Gigi-gg/MyPortfolio/blob/3b09a4affc5ebaf6bedc811f79c3461437cb9000/MySQL%20Superstore%20Analysis.sql)
 - TABLEAU: [here](https://github.com/Gigi-gg/MyPortfolio/blob/3dfb019ab1e6614f567212aa8f85d49b714f05b1/Tableau%20Dashboard%20Superstore.pdf)
 
+### DataCamp Projects
+
+- SQL: Best Selling Video Games
 #### My Tableau Public Profile
 https://public.tableau.com/app/profile/gigig

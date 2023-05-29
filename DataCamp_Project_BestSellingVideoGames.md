@@ -193,32 +193,7 @@ SELECT *
 
 
 
-```python
-%%nose
-from decimal import Decimal as D
-last_output = _
 
-def test_output_type():
-    assert str(type(last_output)) == "<class 'sql.run.ResultSet'>", \
-    "Please ensure an SQL ResultSet is the output of the code cell." 
-
-results = last_output.DataFrame()
-
-def test_results():
-    assert results.shape == (10, 6), \
-    "The results should have six columns and ten rows."
-    assert results.columns.tolist() == ["game", "platform", "publisher", "developer", "games_sold", "year"], \
-    'The results should have columns named "game", "platform", "publisher", "developer", "games_sold", and "year".'
-    assert _.DataFrame().loc[0, 'games_sold'] == D('82.90')
-    "The top selling game should be Wii Sports with 82.90 million copies sold."
-```
-
-
-
-
-
-
-    2/2 tests passed
 
 
 
@@ -260,35 +235,6 @@ WHERE critic_score IS NULL AND user_score IS NULL;
         </tr>
     </tbody>
 </table>
-
-
-
-
-```python
-%%nose
-last_output = _
-
-def test_output_type():
-    assert str(type(last_output)) == "<class 'sql.run.ResultSet'>", \
-    "Please ensure an SQL ResultSet is the output of the code cell." 
-
-results = last_output.DataFrame()
-
-def test_results():
-    assert results.shape == (1, 1), \
-    "The query should return just one value, a count of games where both critic_score and user_score are null."
-    assert results.columns.tolist() == ["count"], \
-    'The results should have just one column, called "count".'
-    assert last_output.DataFrame().loc[0, 'count'] == 31, \
-    "There should be 31 games where both critic_score and user_score are null."
-```
-
-
-
-
-
-
-    2/2 tests passed
 
 
 
@@ -376,34 +322,6 @@ LIMIT 10;
 
 
 
-```python
-%%nose
-from decimal import Decimal as D
-last_output = _
-
-def test_output_type():
-    assert str(type(last_output)) == "<class 'sql.run.ResultSet'>", \
-    "Please ensure an SQL ResultSet is the output of the code cell." 
-
-results = last_output.DataFrame()
-
-def test_results():
-    assert results.shape == (10, 2), \
-    "Make sure to limit the query to only ten results."
-    assert results.columns.tolist() == ["year", "avg_critic_score"], \
-    'The results should have two columns, called "year" and "avg_critic_score".'
-    assert last_output.DataFrame().loc[0, 'year'] == 1990, \
-    "The year with the highest score should be 1990."
-    assert last_output.DataFrame().loc[0, 'avg_critic_score'] == D('9.80'), \
-    "The highest average critic score should be 9.80."
-```
-
-
-
-
-
-
-    2/2 tests passed
 
 
 
@@ -501,37 +419,6 @@ LIMIT 10;
 
 
 
-
-```python
-%%nose
-from decimal import Decimal as D
-last_output = _
-
-def test_output_type():
-    assert str(type(last_output)) == "<class 'sql.run.ResultSet'>", \
-    "Please ensure an SQL ResultSet is the output of the code cell." 
-
-results = last_output.DataFrame()
-
-def test_results():
-    assert results.shape == (10, 3), \
-    "Make sure to limit the query to only ten results."
-    assert set(last_output.DataFrame().columns) == set(["year", "num_games", "avg_critic_score"]), \
-    'The results should have three columns: "year", "num_games", and "avg_critic_score".'
-    assert last_output.DataFrame().loc[0, 'year'] == 1998, \
-    "The year with the highest score should be 1998."
-    assert last_output.DataFrame().loc[0, 'num_games'] == 10, \
-    "In the year with the highest critic score, there were 10 games released."
-    assert last_output.DataFrame().loc[0, 'avg_critic_score'] == D('9.32'), \
-    "The highest average critic score should be 9.32."
-```
-
-
-
-
-
-
-    2/2 tests passed
 
 
 
@@ -649,34 +536,6 @@ ORDER BY avg_critic_score DESC;
 
 
 
-```python
-%%nose
-last_output = _
-
-def test_output_type():
-    assert str(type(last_output)) == "<class 'sql.run.ResultSet'>", \
-    "Please ensure an SQL ResultSet is the output of the code cell." 
-
-results = last_output.DataFrame()
-
-def test_results():
-    assert results.shape == (6, 2), \
-    "There should be six years that dropped off the critics' favorite list after implementing the criteria that the year had to have at least five games released to be considered."
-    assert results.columns.tolist() == ["year", "avg_critic_score"], \
-    'The results should have two columns: "year" and "avg_critic_score".'
-    assert last_output.DataFrame().loc[5, 'year'] == 1982, \
-    "The last year returned by the query should be 1982."
-    assert last_output.DataFrame().loc[5, 'avg_critic_score'] == 9.00, \
-    "1982's average critic score should be 9.00."
-```
-
-
-
-
-
-
-    2/2 tests passed
-
 
 
 
@@ -774,35 +633,6 @@ LIMIT 10;
 
 
 
-```python
-%%nose
-last_output = _
-
-def test_output_type():
-    assert str(type(last_output)) == "<class 'sql.run.ResultSet'>", \
-    "Please ensure an SQL ResultSet is the output of the code cell." 
-
-results = last_output.DataFrame()
-
-def test_results():
-    assert results.shape == (10, 3), \
-    "Don't forget to limit the query results to ten."
-    assert set(results.columns.tolist()) == set(["year", "num_games", "avg_user_score"]), \
-    'The results should have three columns: "year", "num_games", and "avg_user_score".'
-    assert last_output.DataFrame().loc[0, 'year'] == 1997, \
-    "The year with the highest user score should be 1997."
-    assert last_output.DataFrame().loc[0, 'num_games'] == 8, \
-    "In the year with the highest user score, there were eight games released."
-    assert last_output.DataFrame().loc[0, 'avg_user_score'] == 9.50, \
-    "The highest average user score should be 9.50."
-```
-
-
-
-
-
-
-    2/2 tests passed
 
 
 
@@ -908,34 +738,6 @@ FROM top_user_years_more_than_four_games;
 
 
 
-```python
-%%nose
-last_output = _
-
-def test_output_type():
-    assert str(type(last_output)) == "<class 'sql.run.ResultSet'>", \
-    "Please ensure an SQL ResultSet is the output of the code cell." 
-
-results = last_output.DataFrame()
-
-def test_results():
-    assert results.shape == (3, 1), \
-    "There should be three years present in both tables."
-    assert results.columns.tolist() == ["year"], \
-    'The results should just have one column: "year".'
-    assert last_output.DataFrame().loc[0, 'year'] == 1998, \
-    "The first year returned by the query should be 1998."
-```
-
-
-
-
-
-
-    2/2 tests passed
-
-
-
 
 ## 8. Sales in the best video game years
 <p>Looks like we've got three years that both users and critics agreed were in the top ten! There are many other ways of measuring what the best years for video games are, but let's stick with these years for now. We know that critics and players liked these years, but what about video game makers? Were sales good? Let's find out.</p>
@@ -991,43 +793,6 @@ ORDER BY total_games_sold DESC;
     </tbody>
 </table>
 
-
-
-
-```python
-
-```
-
-
-```python
-%%nose
-from decimal import Decimal as D
-last_output = _
-
-
-def test_output_type():
-    assert str(type(last_output)) == "<class 'sql.run.ResultSet'>", \
-    "Please ensure an SQL ResultSet is the output of the code cell." 
-
-results = last_output.DataFrame()
-
-def test_results():
-    assert results.shape == (3, 2), \
-    "There should be games sales data for three years: the same three years from the previous query."
-    assert results.columns.tolist() == ["year", "total_games_sold"], \
-    'The results should have two columns: "year" and "total_games_sold".'
-    assert last_output.DataFrame().loc[0, 'year'] == 2008, \
-    "Just like in the last query, the first year returned should be 2008."
-    assert last_output.DataFrame().loc[0, 'total_games_sold'] == D('175.07'), \
-    "In 2008, the total_games_sold value should be 175.07."
-```
-
-
-
-
-
-
-    2/2 tests passed
 
 
 

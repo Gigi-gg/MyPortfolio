@@ -3,7 +3,7 @@
 
 ### Book Tracker Data Analysis
 
-- SQL: BigQuery Markdown [here](BiqQuery_Book Tracker.md)  
+- SQL: BigQuery Markdown [here](https://github.com/Gigi-gg/MyPortfolio/blob/11cf4d7f805daa04bf7f520663309b3f550d0cf8/BiqQuery_Book%20Tracker.md)  
 - TABLEAU: Dashboard PDF [here](https://github.com/Gigi-gg/MyPortfolio/blob/4b967874dbacf4b16594e480cf8a9c14106a7eba/Tableau%20Dashboard_Book%20Tracker.pdf)
 
 ### Video Game Sales Data Analysis

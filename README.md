@@ -23,8 +23,8 @@ https://public.tableau.com/app/profile/gigig
 
 # Data Analytics Certifications & Trainings
 
-Google
-![Google]()
 
-Datacamp
+![Google](https://github.com/Gigi-gg/MyPortfolio/blob/014d491b1a764b7a379434d879b83034d149a935/Google%20Data%20Analytics%20Certificate.png)
+
+
 ![Datacamp Certificate](https://github.com/Gigi-gg/MyPortfolio/blob/5c8ca651f76f52d2d571f6ab59a488ef3f3a8b88/Data%20Analyst%20Associate%20Certificate.png)

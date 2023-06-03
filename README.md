@@ -20,4 +20,4 @@
 #### My Tableau Public Profile
 https://public.tableau.com/app/profile/gigig
 
-![Datacamp Certificate](https://github.com/Gigi-gg/MyPortfolio/blob/5923b853e3612cf6d60c2822cacaf41256c25b25/Data%20Analyst%20Associate%20Certificate.pdf)
+![Datacamp Certificate](https://github.com/Gigi-gg/MyPortfolio/blob/5c8ca651f76f52d2d571f6ab59a488ef3f3a8b88/Data%20Analyst%20Associate%20Certificate.png)

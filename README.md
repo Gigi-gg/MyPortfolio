@@ -2,7 +2,7 @@
 # My Data Analytics Projects
 
 ### Databel Customer Churn Analysis
-- Tableau: [here] ()
+- Tableau: [here](https://github.com/Gigi-gg/MyPortfolio/blob/5784a46783f07fea814cdbcae7856c3d0a9a83a4/Tableau_Story_Databel%20Churn%20Analysis.pdf)
 
 ### Video Game Sales Data Analysis
 - R: Markdown [here](https://github.com/Gigi-gg/MyPortfolio/blob/3a6d79b332b5e2811ff5cd403c52ba898892ea4b/Rmarkdown_VideoGameSales.pdf)

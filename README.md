@@ -11,7 +11,7 @@
 
 
 
-#### Visualization Projects
+### Visualization Projects
 - TABLEAU: Databel Customer Churn Story [here](https://github.com/Gigi-gg/MyPortfolio/blob/5784a46783f07fea814cdbcae7856c3d0a9a83a4/Tableau_Story_Databel%20Churn%20Analysis.pdf)
 - TABLEAU: Book Tracker Dashboard (2022) [here](https://github.com/Gigi-gg/MyPortfolio/blob/4b967874dbacf4b16594e480cf8a9c14106a7eba/Tableau%20Dashboard_Book%20Tracker.pdf)
 - TABLEAU: Video Game Sales Dashboard [here](https://github.com/Gigi-gg/MyPortfolio/blob/3a6d79b332b5e2811ff5cd403c52ba898892ea4b/Tableau%20Dashboard_Video%20Game%20Sales.pdf)

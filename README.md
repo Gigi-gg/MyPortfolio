@@ -17,7 +17,7 @@
 - TABLEAU: Video Game Sales Dashboard [here](https://github.com/Gigi-gg/MyPortfolio/blob/3a6d79b332b5e2811ff5cd403c52ba898892ea4b/Tableau%20Dashboard_Video%20Game%20Sales.pdf)
 - POWER BI: Superstore Company & Regional Performance [here](https://github.com/Gigi-gg/MyPortfolio/blob/be673755b795c9c86688d8c81bc30f1f19bd89fe/PowerBi_Superstore.png)
 - POWER BI: Databel Customer Churn [here](https://github.com/Gigi-gg/MyPortfolio/blob/d0c6cff60674f4d621304dc1cadb53de8444fdcc/PowerBi_Databel.pdf)
-- EXCEL: Book Tracker Dashboard (2023) [here]
+- EXCEL: Book Tracker Dashboard (2023) [here](https://github.com/Gigi-gg/MyPortfolio/blob/ff72feab1ea6a2cfb7a6cb9e5f097462f16e5e71/Excel%20Dashboard_2023%20Reading%20Wrap%20Up.pdf).
 
 
 #### My Tableau Public Profile

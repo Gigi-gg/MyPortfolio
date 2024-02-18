@@ -6,8 +6,8 @@
 - SQL: Best Selling Video Games [here](DataCamp_Project_BestSellingVideoGames.md)
 - MySQL Table altering/updating: [here](https://github.com/Gigi-gg/MyPortfolio/blob/a6bc157bf8b151a532db61941157ab4928bce3db/MySQL%20Superstore%20Alter_table.sql)
 - MySQL Superstore Analysis: [here](https://github.com/Gigi-gg/MyPortfolio/blob/3b09a4affc5ebaf6bedc811f79c3461437cb9000/MySQL%20Superstore%20Analysis.sql)
-- SQL: BigQuery Markdown [here](https://github.com/Gigi-gg/MyPortfolio/blob/11cf4d7f805daa04bf7f520663309b3f550d0cf8/BiqQuery_Book%20Tracker.md)
-- EXCEL: Power Query/Power Pivot Book Tracker Data (2023) [here](https://github.com/Gigi-gg/MyPortfolio/blob/aedba8816ba0cd82560582b6438360a8e459be37/Excel%20Power%20Query_Data%20Cleaning%20Steps_2023%20Reading%20Wrap%20Up.pdf).
+- SQL: BigQuery Markdown - Book Tracker Data: [here](https://github.com/Gigi-gg/MyPortfolio/blob/11cf4d7f805daa04bf7f520663309b3f550d0cf8/BiqQuery_Book%20Tracker.md)
+- EXCEL: Power Query/Power Pivot - Book Tracker Data (2023): [here](https://github.com/Gigi-gg/MyPortfolio/blob/aedba8816ba0cd82560582b6438360a8e459be37/Excel%20Power%20Query_Data%20Cleaning%20Steps_2023%20Reading%20Wrap%20Up.pdf).
 
 
 
@@ -18,8 +18,9 @@
 - POWER BI: Superstore Company & Regional Performance [view](https://github.com/Gigi-gg/MyPortfolio/blob/be673755b795c9c86688d8c81bc30f1f19bd89fe/PowerBi_Superstore.png)
 - POWER BI: Databel Customer Churn [view](https://github.com/Gigi-gg/MyPortfolio/blob/d0c6cff60674f4d621304dc1cadb53de8444fdcc/PowerBi_Databel.pdf)
 - EXCEL: Book Tracker Vizualization [view](https://github.com/Gigi-gg/MyPortfolio/blob/dc342be056e959ac1035ff14023cec8d98a67d55/Excel%20Vizualization_2023%20Reading%20Wrap%20Up.pdf)
-- EXCEL: Book Tracker Dashboard (2023) [here](https://github.com/Gigi-gg/MyPortfolio/blob/ff72feab1ea6a2cfb7a6cb9e5f097462f16e5e71/Excel%20Dashboard_2023%20Reading%20Wrap%20Up.pdf).
+- EXCEL: Book Tracker Dashboard (2023) [here](https://github.com/Gigi-gg/MyPortfolio/blob/ff72feab1ea6a2cfb7a6cb9e5f097462f16e5e71/Excel%20Dashboard_2023%20Reading%20Wrap%20Up.pdf)
 
+#### Favorite Vizualization
 
 
 #### My Tableau Public Profile

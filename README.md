@@ -12,12 +12,12 @@
 
 
 ### Visualization Projects
-- TABLEAU: Databel Customer Churn Story [here](https://github.com/Gigi-gg/MyPortfolio/blob/5784a46783f07fea814cdbcae7856c3d0a9a83a4/Tableau_Story_Databel%20Churn%20Analysis.pdf)
-- TABLEAU: Book Tracker Dashboard (2022) [here](https://github.com/Gigi-gg/MyPortfolio/blob/4b967874dbacf4b16594e480cf8a9c14106a7eba/Tableau%20Dashboard_Book%20Tracker.pdf)
-- TABLEAU: Video Game Sales Dashboard [here](https://github.com/Gigi-gg/MyPortfolio/blob/3a6d79b332b5e2811ff5cd403c52ba898892ea4b/Tableau%20Dashboard_Video%20Game%20Sales.pdf)
-- POWER BI: Superstore Company & Regional Performance [here](https://github.com/Gigi-gg/MyPortfolio/blob/be673755b795c9c86688d8c81bc30f1f19bd89fe/PowerBi_Superstore.png)
-- POWER BI: Databel Customer Churn [here](https://github.com/Gigi-gg/MyPortfolio/blob/d0c6cff60674f4d621304dc1cadb53de8444fdcc/PowerBi_Databel.pdf)
-- EXCEL: Book Tracker Vizualization [here](https://github.com/Gigi-gg/MyPortfolio/blob/dc342be056e959ac1035ff14023cec8d98a67d55/Excel%20Vizualization_2023%20Reading%20Wrap%20Up.pdf)
+- TABLEAU: Databel Customer Churn Story [view](https://github.com/Gigi-gg/MyPortfolio/blob/5784a46783f07fea814cdbcae7856c3d0a9a83a4/Tableau_Story_Databel%20Churn%20Analysis.pdf)
+- TABLEAU: Book Tracker Dashboard (2022) [view](https://github.com/Gigi-gg/MyPortfolio/blob/4b967874dbacf4b16594e480cf8a9c14106a7eba/Tableau%20Dashboard_Book%20Tracker.pdf)
+- TABLEAU: Video Game Sales Dashboard [view](https://github.com/Gigi-gg/MyPortfolio/blob/3a6d79b332b5e2811ff5cd403c52ba898892ea4b/Tableau%20Dashboard_Video%20Game%20Sales.pdf)
+- POWER BI: Superstore Company & Regional Performance [view](https://github.com/Gigi-gg/MyPortfolio/blob/be673755b795c9c86688d8c81bc30f1f19bd89fe/PowerBi_Superstore.png)
+- POWER BI: Databel Customer Churn [view](https://github.com/Gigi-gg/MyPortfolio/blob/d0c6cff60674f4d621304dc1cadb53de8444fdcc/PowerBi_Databel.pdf)
+- EXCEL: Book Tracker Vizualization [view](https://github.com/Gigi-gg/MyPortfolio/blob/dc342be056e959ac1035ff14023cec8d98a67d55/Excel%20Vizualization_2023%20Reading%20Wrap%20Up.pdf)
 - EXCEL: Book Tracker Dashboard (2023) [here](https://github.com/Gigi-gg/MyPortfolio/blob/ff72feab1ea6a2cfb7a6cb9e5f097462f16e5e71/Excel%20Dashboard_2023%20Reading%20Wrap%20Up.pdf).
 
 

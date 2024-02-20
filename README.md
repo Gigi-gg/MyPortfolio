@@ -7,7 +7,7 @@
 - MySQL Table altering/updating: [here](https://github.com/Gigi-gg/MyPortfolio/blob/a6bc157bf8b151a532db61941157ab4928bce3db/MySQL%20Superstore%20Alter_table.sql)
 - MySQL Superstore Analysis: [here](https://github.com/Gigi-gg/MyPortfolio/blob/3b09a4affc5ebaf6bedc811f79c3461437cb9000/MySQL%20Superstore%20Analysis.sql)
 - SQL: BigQuery Markdown - Book Tracker Data: [here](https://github.com/Gigi-gg/MyPortfolio/blob/11cf4d7f805daa04bf7f520663309b3f550d0cf8/BiqQuery_Book%20Tracker.md)
-- EXCEL: Power Query/Power Pivot - Book Tracker Data (2023): [here](https://github.com/Gigi-gg/MyPortfolio/blob/aedba8816ba0cd82560582b6438360a8e459be37/Excel%20Power%20Query_Data%20Cleaning%20Steps_2023%20Reading%20Wrap%20Up.pdf).
+- EXCEL: Power Query/Power Pivot Process - Book Tracker Data (2023): [here](https://github.com/Gigi-gg/MyPortfolio/blob/aedba8816ba0cd82560582b6438360a8e459be37/Excel%20Power%20Query_Data%20Cleaning%20Steps_2023%20Reading%20Wrap%20Up.pdf).
 
 
 

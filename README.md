@@ -19,6 +19,7 @@
 - POWER BI: Databel Customer Churn [view](https://github.com/Gigi-gg/MyPortfolio/blob/d0c6cff60674f4d621304dc1cadb53de8444fdcc/PowerBi_Databel.pdf)
 - EXCEL: Book Tracker Vizualization [view](https://github.com/Gigi-gg/MyPortfolio/blob/dc342be056e959ac1035ff14023cec8d98a67d55/Excel%20Vizualization_2023%20Reading%20Wrap%20Up.pdf)
 - EXCEL: Book Tracker Dashboard (2023) [here](https://github.com/Gigi-gg/MyPortfolio/blob/ff72feab1ea6a2cfb7a6cb9e5f097462f16e5e71/Excel%20Dashboard_2023%20Reading%20Wrap%20Up.pdf)
+- EXCEL: Store Sales Dashboard [view](https://github.com/Gigi-gg/MyPortfolio/blob/7283819f0582b748043796a124a98ba238d2205a/Excel%20Dashboard_StoreSales.pdf)
 
 #### Favorite Vizualization
 

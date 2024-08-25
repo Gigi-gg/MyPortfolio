@@ -17,7 +17,7 @@
 - TABLEAU: Video Game Sales Dashboard [view](https://github.com/Gigi-gg/MyPortfolio/blob/3a6d79b332b5e2811ff5cd403c52ba898892ea4b/Tableau%20Dashboard_Video%20Game%20Sales.pdf)
 - POWER BI: Superstore Company & Regional Performance [view](https://github.com/Gigi-gg/MyPortfolio/blob/be673755b795c9c86688d8c81bc30f1f19bd89fe/PowerBi_Superstore.png)
 - POWER BI: Databel Customer Churn [view](https://github.com/Gigi-gg/MyPortfolio/blob/d0c6cff60674f4d621304dc1cadb53de8444fdcc/PowerBi_Databel.pdf)
-- Excel: Databel Customer Churn [view]
+- Excel: Databel Customer Churn [view](Excel Visualization_Databel Customer Churn.pdf)
 - EXCEL: Book Tracker Vizualization [view](https://github.com/Gigi-gg/MyPortfolio/blob/dc342be056e959ac1035ff14023cec8d98a67d55/Excel%20Vizualization_2023%20Reading%20Wrap%20Up.pdf)
 - EXCEL: Book Tracker Dashboard (2023) [view](https://github.com/Gigi-gg/MyPortfolio/blob/ff72feab1ea6a2cfb7a6cb9e5f097462f16e5e71/Excel%20Dashboard_2023%20Reading%20Wrap%20Up.pdf)
 - EXCEL: Store Sales Dashboard [view](https://github.com/Gigi-gg/MyPortfolio/blob/7283819f0582b748043796a124a98ba238d2205a/Excel%20Dashboard_StoreSales.pdf)
